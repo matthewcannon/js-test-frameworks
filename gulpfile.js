@@ -8,7 +8,7 @@ var batch = require('gulp-batch');
 
 gulp.task('default', ['test', 'deploy']);
 
-gulp.task('deploy', ['deploy-html', 'deploy-javascript', 'deploy-styles', 'deploy-images', 'deploy-fonts', 'deploy-sounds']);
+gulp.task('deploy', ['deploy-html', 'deploy-javascript', 'deploy-styles', 'deploy-images', 'deploy-fonts']);
 
 gulp.task('test', function() {
     return gulp
@@ -67,13 +67,8 @@ gulp.task('deploy-fonts', function() {
         .pipe(gulp.dest('./dist/fonts'));
 });
 
-gulp.task('deploy-sounds', function() {
-    return gulp.src('./src/sounds/**')
-        .pipe(gulp.dest('./dist/snd'));
-});
-
-gulp.task('rgr', function() {
-    gulp.watch(['test/**', 'lib/**'], batch(function (events, cb) {
+gulp.task('tdd', function() {
+    gulp.watch(['test/**', 'lib/**'], batch(function () {
         return gulp.src(['test/*.js'])
             .pipe(mocha({ reporter: 'list' }))
             .on('error', function (err) {
