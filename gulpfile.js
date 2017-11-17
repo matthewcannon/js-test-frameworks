@@ -8,7 +8,7 @@ var batch = require('gulp-batch');
 
 gulp.task('default', ['test', 'deploy']);
 
-gulp.task('deploy', ['deploy-html', 'deploy-javascript', 'deploy-styles', 'deploy-images', 'deploy-fonts']);
+gulp.task('deploy', ['deploy-html', 'deploy-javascript']);
 
 gulp.task('test', function() {
     return gulp
@@ -43,28 +43,6 @@ gulp.task('deploy-javascript', function() {
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('dist'));
-});
-
-gulp.task('deploy-styles', function() {
-    var sass = require('gulp-sass'),
-        cssmin = require('gulp-cssmin'),
-        rename = require('gulp-rename');
-
-    return gulp.src('./src/styles/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(cssmin())
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('./dist/css'));
-});
-
-gulp.task('deploy-images', function() {
-    return gulp.src('./src/images/**')
-        .pipe(gulp.dest('./dist/img'));
-});
-
-gulp.task('deploy-fonts', function() {
-    return gulp.src('./src/fonts/**')
-        .pipe(gulp.dest('./dist/fonts'));
 });
 
 gulp.task('tdd', function() {
