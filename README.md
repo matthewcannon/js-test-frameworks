@@ -1,6 +1,8 @@
 # js-test-frameworks
 A sandbox for evaluating JS test frameworks, including support for React.
-## TDD
+## Mocha
+The top-level directory contains a very basic use of Mocha and is the simplest example in this repo. The following Gulp tasks can be used.
+### TDD
 `gulp tdd` watches for changes to the application code and test code and runs all the tests.
-## Testing
+### Testing
 `gulp test` runs all the tests.
