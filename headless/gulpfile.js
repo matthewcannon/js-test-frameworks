@@ -18,7 +18,8 @@ gulp.task('test', function() {
                     js: babel
                 }
              }))
-        .once('error', function () {
+        .once('error', function (e) {
+            console.log(e);
             process.exit(1);
         })
         .once('end', function () {
