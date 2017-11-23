@@ -7,11 +7,11 @@ describe('landing', function() {
         (async () => {
             const browser = await puppeteer.launch({ headless: true });
             const page = await browser.newPage();
-            await page.goto('http://google.com');
+            await page.goto('http://localhost:8000');
             pageTitle = await page.title();
             await browser.close();
         })().then(x => {
-            pageTitle.should.equal('Not Google');
+            pageTitle.should.equal('Title.');
             done(x);
         }).catch(e => {
             done(e);
