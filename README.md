@@ -2,8 +2,8 @@
 A sandbox for evaluating JS test frameworks, including support for React.
 ## Getting started
 1. Install the latest version of [Node.js](http://nodejs.org)
-2. `npm install`
-3.  npm install -g gulp-cli`
+2.  npm install -g gulp-cli mocha`
+3. `npm install`
 4. `gulp`
 ## Unit testing
 The top-level directory contains a very basic use of Mocha and is the simplest example in this repo. Gulp is used to get things moving.
